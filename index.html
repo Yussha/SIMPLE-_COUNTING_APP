@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Application</title>
+   <style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+ body{
+    background-image:
+        linear-gradient(
+          118deg,
+          hsla(0, 14.81%, 21.18%, 0.94) 0%,
+          hsla(359.43, 14.92%, 21.32%, 0.94) 8%,
+          hsla(357.72, 15.21%, 21.76%, 0.94) 15.4%,
+          hsla(354.9, 15.63%, 22.48%, 0.94) 22.2%,
+          hsla(350.98, 16.09%, 23.47%, 0.939) 28.6%,
+          hsla(345.85, 16.45%, 24.71%, 0.939) 34.6%,
+          hsla(339.29, 16.52%, 26.17%, 0.938) 40.4%,
+          hsla(330.65, 16.05%, 27.83%, 0.938) 46.1%,
+          hsla(318.34, 14.76%, 29.61%, 0.937) 51.7%,
+          hsla(297.87, 12.69%, 31.58%, 0.936) 57.5%,
+          hsla(272.7, 14.18%, 35.48%, 0.935) 63.4%,
+          hsla(247.78, 15%, 39.92%, 0.935) 69.7%,
+          hsla(224.91, 21.05%, 42.5%, 0.933) 76.4%,
+          hsla(210.97, 31.08%, 43.18%, 0.932) 83.6%,
+          hsla(200.95, 43.41%, 42.36%, 0.931) 91.4%,
+          hsla(192.71, 57.84%, 40%, 0.93) 100%
+        );
+      }
+
+div{
+    background-color: whitesmoke;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10% auto;  */
+    border-radius: 10px;
+    box-shadow: 2px 5px 6px;
+}
+
+h1, h2, p{
+    color: black
+}
+
+button{
+    cursor: pointer;
+    border: solid 2px;
+    border-color: gray;
+    font-weight: bold;
+}
+button:hover{
+    color: white;
+    background: gray;
+    box-shadow: 2px 5px 10px black;
+}
+
+p{
+    font-weight: 300px;
+}
+
+@media only screen and (min-width: 375px){
+    div{
+        width: 70%;
+        height: 80vh;
+        margin: 10% auto; 
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+
+    button{
+        padding: 6px 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: solid 2px;
+        border-color: gray;
+        font-weight: bold;
+    }
+
+    p{
+        margin-top: 15px;
+        font-size: 1.10rem;
+    }
+    
+}
+
+@media only screen and (max-width: 600px){
+    div{
+        width: 65%;
+        height: 70vh;
+        margin: 10% auto; 
+    }
+    
+}
+
+@media only screen and (min-width: 992px){
+    div{
+        width: 40%;
+        height: 58vh;   
+    }
+
+    h1{
+        font-size: 3rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    button{
+        padding: 10px 20px;
+        margin-top: 10px;
+    }
+    
+    p{
+        margin-top: 10px;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+}
+
+   </style>
+</head>
+<body>
+    
+    <div class="overlay">
+        <h1>Count:</h1>
+        <h2 id="counts-of-people">0</h2>
+        <button id="increment-btn" onclick="increment()">INCREMENT</button>
+        <button id="save-btn" onclick="save()">SAVE</button>
+        <button id="delete-btn">DELETE</button>
+        <p id="previous-entries">Previous Countings:</p>
+    </div>
+  
+</body>
+<script>
+
+let count = 0;
+
+const countOfPeople = document.getElementById("counts-of-people");
+const deleteAll = document.getElementById("delete-btn");
+const previousEntries = document.getElementById("previous-entries");
+
+function increment(){
+    count += 1;
+    countOfPeople.textContent = count;
+}
+
+function save(){
+    let previous = 0;
+    previous = count + "-"
+    previousEntries.textContent += previous;
+
+    count = 0;
+    countOfPeople.textContent = 0;
+}
+
+function dlt(){
+    previousEntries.innerText = "Previous Countings:";
+}
+
+deleteAll.addEventListener("click", dlt);
+</script>
+</html>
